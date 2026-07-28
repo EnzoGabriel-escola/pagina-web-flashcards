@@ -52,7 +52,7 @@ h2{
 
 .cartao-frente,
 .cartao-verso{
-    background:white;
+    background:rgb(255, 255, 255);
     border-radius:10px;
     overflow:hidden;
     box-shadow:0 4px 10px rgba(0,0,0,.3);
