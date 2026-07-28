@@ -9,6 +9,9 @@ body{
     flex-direction:column;
     min-height:100vh;
     font-family:Arial, Helvetica, sans-serif;
+
+    /* Fundo azul */
+    background-color:#7ec8ff;
 }
 
 main{
@@ -21,7 +24,7 @@ main{
     justify-content:space-between;
     align-items:center;
     padding:15px 25px;
-    background:#0d6efd;
+    background:#0056b3;
 }
 
 .cabecalho h1,
@@ -33,6 +36,7 @@ main{
 h2{
     text-align:center;
     margin-bottom:25px;
+    color:white;
 }
 
 .cards{
@@ -48,12 +52,11 @@ h2{
 
 .cartao-frente,
 .cartao-verso{
-    border:1px solid #ccc;
+    background:white;
     border-radius:10px;
     overflow:hidden;
-    background:white;
+    box-shadow:0 4px 10px rgba(0,0,0,.3);
     text-align:center;
-    box-shadow:0 2px 8px rgba(0,0,0,.2);
 }
 
 .cartao-imagem{
@@ -70,8 +73,8 @@ h2{
 }
 
 footer{
+    background:#0056b3;
+    color:white;
     text-align:center;
     padding:15px;
-    margin-top:20px;
-    background:#f2f2f2;
 }
