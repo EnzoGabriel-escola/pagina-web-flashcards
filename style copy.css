@@ -63,26 +63,27 @@ h2{
 }
 
 
+
 .cards{
 
     display:flex;
 
     justify-content:center;
 
-    gap:25px;
+    gap:20px;
 
 }
 
 
 
-/* Todos começam invisíveis */
+/* Cada cartão fica escondido */
 .cartao{
 
     width:180px;
 
-    height:230px;
-
     opacity:0;
+
+    transform:scale(0.8);
 
     transition:0.4s ease;
 
@@ -90,16 +91,19 @@ h2{
 
 
 
-/* Somente o cartão que recebe o mouse aparece */
+/* Somente o cartão onde o mouse está aparece */
 .cartao:hover{
 
     opacity:1;
+
+    transform:scale(1);
 
 }
 
 
 
-.cartao-conteudo{
+.cartao-frente,
+.cartao-verso{
 
     background:white;
 
@@ -123,29 +127,18 @@ h2{
 
     object-fit:cover;
 
-}
-
-
-
-.mito{
-
-    padding:10px;
-
-    font-size:14px;
+    display:block;
 
 }
 
 
 
-.verdade{
+.cartao-frente p,
+.cartao-verso p{
 
     padding:10px;
 
     font-size:14px;
-
-    color:#0056b3;
-
-    font-weight:bold;
 
 }
 
