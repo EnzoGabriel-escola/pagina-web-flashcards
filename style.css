@@ -1,105 +1,50 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-
-body{
-
-    display:flex;
-    flex-direction:column;
-    min-height:100vh;
-
-    font-family:Arial, Helvetica, sans-serif;
-
-    background:#7ec8ff;
-
-}
-
-
-main{
-
-    flex:1;
-
-    padding:20px;
-
-}
-
-
-.cabecalho{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:15px 25px;
-
-    background:#0056b3;
-
-}
-
-
-.cabecalho h1,
-.cabecalho a{
-
-    color:white;
-
-    text-decoration:none;
-
-}
-
-
-h2{
-
-    text-align:center;
-
-    color:white;
-
-    margin-bottom:25px;
-
-}
-
-
 .cards{
 
     display:flex;
 
     justify-content:center;
 
-    gap:25px;
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    perspective:1000px;
 
 }
 
 
-
-/* Todos começam invisíveis */
 .cartao{
 
     width:180px;
 
-    height:230px;
+    height:220px;
 
-    opacity:0;
+    position:relative;
 
-    transition:0.4s ease;
+    cursor:pointer;
+
+    transform-style:preserve-3d;
+
+    transition:transform .6s;
 
 }
 
 
-
-/* Somente o cartão que recebe o mouse aparece */
 .cartao:hover{
 
-    opacity:1;
+    transform:rotateY(180deg);
 
 }
 
 
+.cartao-frente,
+.cartao-verso{
 
-.cartao-conteudo{
+    position:absolute;
+
+    width:100%;
+
+    height:100%;
 
     background:white;
 
@@ -107,12 +52,20 @@ h2{
 
     overflow:hidden;
 
-    box-shadow:0 4px 10px rgba(0,0,0,0.3);
+    box-shadow:0 4px 10px rgba(0,0,0,.3);
 
     text-align:center;
 
+    backface-visibility:hidden;
+
 }
 
+
+.cartao-verso{
+
+    transform:rotateY(180deg);
+
+}
 
 
 .cartao-imagem{
@@ -123,42 +76,16 @@ h2{
 
     object-fit:cover;
 
+    display:block;
+
 }
 
 
-
-.mito{
+.cartao-frente p,
+.cartao-verso p{
 
     padding:10px;
 
     font-size:14px;
-
-}
-
-
-
-.verdade{
-
-    padding:10px;
-
-    font-size:14px;
-
-    color:#0056b3;
-
-    font-weight:bold;
-
-}
-
-
-
-footer{
-
-    background:#0056b3;
-
-    color:white;
-
-    text-align:center;
-
-    padding:15px;
 
 }
