@@ -49,29 +49,62 @@ h2{
 /* Cartões */
 .cartao{
     width:220px;
-    min-height:260px;
-
-    opacity:0;
-    transform:scale(0.8);
-
-    transition:0.35s ease;
-
+    height:260px;
+    position:relative;
+    perspective:1000px; /* Efeito 3D de profundidade */
     cursor:pointer;
+    
+    /* Suaviza o surgimento e o movimento */
+    transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
-/* Apenas o cartão com o mouse aparece */
-.cartao:hover{
-    opacity:1;
-    transform:scale(1);
+/* Regra de visibilidade: ao passar o mouse na área, TODOS ficam invisíveis... */
+.area-cartoes:hover .cartao {
+    opacity: 0;
+    transform: scale(0.85);
 }
 
+/* ...EXCETO o cartão exato sobre o qual o mouse está posicionando */
+.area-cartoes .cartao:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* Ajuste da Frente e do Verso para sobreposição perfeita */
 .cartao-frente,
 .cartao-verso{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
     background:rgb(72, 3, 246);
     border-radius:10px;
     overflow:hidden;
     box-shadow:0 4px 10px rgba(0,0,0,0.3);
     text-align:center;
+    
+    /* Esconde o lado oposto ao virar */
+    backface-visibility: hidden;
+    transition: transform 0.6s ease;
+}
+
+/* Estado inicial da frente e verso */
+.cartao-frente {
+    transform: rotateY(0deg);
+}
+
+.cartao-verso {
+    transform: rotateY(180deg);
+}
+
+/* Efeito de virada no hover do cartão */
+.cartao:hover .cartao-frente {
+    transform: rotateY(180deg);
+}
+
+.cartao:hover .cartao-verso {
+    transform: rotateY(0deg);
 }
 
 .cartao-imagem{
